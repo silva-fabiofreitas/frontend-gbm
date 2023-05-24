@@ -1,5 +1,10 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import Header from '../components/template/Header'
+import Main from '../components/template/Main'
+import Footer from '../components/template/Footer'
+import Logo from '../components/template/Logo'
+import Nave from '../components/template/Nave'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -9,9 +14,35 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+  const linksHeader = [
+    {name:'Inicio', path:'home'},
+    {name:'Cadastro', path:'cadastro'},
+    {name:'Análise de dados', path:'dashboard'},
+    {name:'Alocação das Unidades Móvel', path:'alocacao-unidade-movel'},
+  ]
+  const linksFooter = [
+    {name:'Contato', path:'#'},
+    {name:'Equipe', path:'#'},
+    {name:'Doação', path:'#'},
+
+  ]
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      <div className='app'>
+                <Logo style='bg-neutral-800'></Logo>
+                <Header style='bg-neutral-800'>
+                    <Nave links={linksHeader}></Nave>
+                </Header>
+                <Main style='bg-stone-100'>
+                  {children}
+                </Main>
+                <Footer style='bg-neutral-800'>
+                    <Nave links={linksFooter}></Nave>
+                </Footer>
+            </div>
+        
+      </body>
     </html>
   )
 }
