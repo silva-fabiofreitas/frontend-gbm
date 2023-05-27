@@ -16,7 +16,7 @@ export default function Nav(props) {
     }
 
     return (
-        <nav className="">
+        <nav className={`${style}`}>
             {renderLink()}
             {props.children}
         </nav>

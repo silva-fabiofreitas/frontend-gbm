@@ -37,8 +37,8 @@ export default function RootLayout({ children }) {
                 <Main style='bg-stone-100'>
                   {children}
                 </Main>
-                <Footer style='bg-neutral-800'>
-                    <Nave links={linksFooter}></Nave>
+                <Footer style='bg-neutral-800 flex'>
+                    <Nave style='bg-neutral-800 flex' links={linksFooter}></Nave>
                 </Footer>
             </div>
         
