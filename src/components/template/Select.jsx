@@ -2,14 +2,15 @@ export default function Select(props) {
     const name = props.name
     const className = props.className
     const options = props.options
+    const id = props.id
     
     
     return (
-        <select name={name} className={className} >
+        <select id={id} name={name} className={className} >
             {props.children}
             {
                 options.map((obj, index)=>(
-                    <option key={index} value={obj.id}>{obj.name}</option>
+                    <option key={index} value={obj.name}>{obj.name}</option>
             ))
             }
         </select>

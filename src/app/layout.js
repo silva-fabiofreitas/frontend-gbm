@@ -31,13 +31,13 @@ export default function RootLayout({ children }) {
   ]
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} overflow-y-hidden`}>
       <div className='app'>
                 <Logo style='bg-neutral-800'></Logo>
                 <Header style='bg-neutral-800'>
-                    <Nave links={linksHeader} className='flex'></Nave>
+                    <Nave links={linksHeader} className='flex bg-neutral-800'></Nave>
                 </Header>
-                <Main style='bg-stone-100'>
+                <Main style='bg-stone-100 overflow-y-auto'>
                   {children}
                 </Main>
                 <Footer style='bg-neutral-800 flex'>

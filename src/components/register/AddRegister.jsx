@@ -18,7 +18,7 @@ export default function AddRegister() {
                 </Button>
             </div>
             <Modal modalOpen={modalOpen} setModalOpen={setModalOpen} >
-                <Form/>
+                <Form setModalOpen={setModalOpen}/>
             </Modal>
         </>
     )

@@ -1,7 +1,10 @@
 const baseUrl = 'http://127.0.0.1:8000'
 
 export async function getRegister(){
-    const resp = await fetch(`${baseUrl}/endereco/`)
+    const resp = await fetch(`${baseUrl}/endereco/`, {
+        cache:'no-store'
+
+    })
     const register = await resp.json()
     return register
 }
@@ -28,10 +31,12 @@ export const addRegister = async (data) => {
     const resp = await fetch(`${baseUrl}/endereco/`, {
         method:'POST',
         headers: {
-            'Content-Type':'application/json'
+            'Content-Type': "application/json",
+
         },
         body: JSON.stringify(data)
     })
     const newRegister = await resp.json();
+
     return newRegister
 }

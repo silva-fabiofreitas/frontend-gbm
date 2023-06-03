@@ -1,13 +1,17 @@
 import {addRegister} from '@/service/address'
 import {SelectCity, SelectDistrict, SelectState} from './SelectRegister'
+import {useRouter} from 'next/navigation'
 
-
-export default function Form() {
+export default function Form({setModalOpen}) {
+    const router = useRouter()
     const handleSubimit = (e)=>{
         e.preventDefault()
-        addRegister({
-            
-        })
+        const formData = new FormData(e.target)
+        const data = Object.fromEntries(formData.entries())
+        addRegister(data)
+        setModalOpen(false)
+        router.refresh()
+        
         
     }   
 
@@ -17,27 +21,28 @@ export default function Form() {
             <div className="flex justify-around mt-10">
                 <div className="relative mb-6">
                     <label
-                        htmlFor="exampleInputEmail1"
+                        htmlFor="stateID"
                         className="pointer-events-none"
                     >UF
                     </label>                    
-                    <SelectState/>
+                    <SelectState id='stateID'/>
                 </div>
                 <div className="relative mb-6">
                     <label
-                        htmlFor="exampleInputEmail1"
+                        htmlFor="cityID"
                         className="pointer-events-none"
                     >Cidade
                     </label>
-                    <SelectCity/>
+                    <SelectCity id='cityID'/>
                 </div>
                 <div className="relative mb-6">
                     <label
-                        htmlFor="exampleInputEmail1"
+                        htmlFor="districtID"
                         className="pointer-events-none"
                     >Bairro
                     </label>
-                    <SelectDistrict/>
+                    <SelectDistrict id='districtID'/>                    
+
                 </div>
             </div>
 
