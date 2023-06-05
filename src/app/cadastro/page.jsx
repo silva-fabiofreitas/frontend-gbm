@@ -1,5 +1,5 @@
 import {getRegister} from '@/service/address'
-import Table from '@/components/table/Table'
+import Table from '@/components/register/Table'
 import AddRegister from '@/components/register/AddRegister'
 
 

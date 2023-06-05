@@ -40,3 +40,28 @@ export const addRegister = async (data) => {
 
     return newRegister
 }
+
+export const putRegister = async (data, id) => {
+    const resp = await fetch(`${baseUrl}/endereco/${id}/`, {
+        method:'PUT',
+        headers: {
+            'Content-Type': "application/json",
+
+        },
+        body: JSON.stringify(data)
+    })
+    const newRegister = await resp.json();
+
+    return newRegister
+}
+
+export const deleteRegister = async (id) => {
+    const resp = await fetch(`${baseUrl}/endereco/${id}/`, {
+        method:'DELETE',
+        headers: {
+            'Content-Type': "application/json",
+
+        },
+    })    
+    return resp.status
+}

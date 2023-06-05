@@ -10,9 +10,7 @@ export default function Form({setModalOpen}) {
         const data = Object.fromEntries(formData.entries())
         addRegister(data)
         setModalOpen(false)
-        router.refresh()
-        
-        
+        router.refresh()     
     }   
 
     return (

@@ -3,10 +3,10 @@ export default function Select(props) {
     const className = props.className
     const options = props.options
     const id = props.id
-    
-    
+    const selected = props.selected
+        
     return (
-        <select id={id} name={name} className={className} >
+        <select id={id} name={name} className={className} value={selected} onChange={e=>true}>
             {props.children}
             {
                 options.map((obj, index)=>(

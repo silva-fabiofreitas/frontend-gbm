@@ -1,5 +1,5 @@
 'use client'
-import { IoIosAdd, IoIosAddCircle } from 'react-icons/io'
+import {IoIosAddCircle } from 'react-icons/io'
 import Modal from '../template/Modal'
 import Button from './Button'
 import Form from './Form'
