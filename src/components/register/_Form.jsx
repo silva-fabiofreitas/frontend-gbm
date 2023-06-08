@@ -1,20 +1,10 @@
-import {addRegister} from '@/service/address'
+
 import {SelectCity, SelectDistrict, SelectState} from './SelectRegister'
-import {useRouter} from 'next/navigation'
 
-export default function Form({setModalOpen}) {
-    const router = useRouter()
-    const handleSubimit = (e)=>{
-        e.preventDefault()
-        const formData = new FormData(e.target)
-        const data = Object.fromEntries(formData.entries())
-        addRegister(data)
-        setModalOpen(false)
-        router.refresh()     
-    }   
-
+export default function Form(props) {
+ 
     return (
-        <form onSubmit={handleSubimit}>
+        <form onSubmit={props.handleSubimit}>
             <h1 className="font-semibold text-lg">Registros de ocorrências</h1>
             <div className="flex justify-around mt-10">
                 <div className="relative mb-6">
@@ -23,7 +13,7 @@ export default function Form({setModalOpen}) {
                         className="pointer-events-none"
                     >UF
                     </label>                    
-                    <SelectState id='stateID'/>
+                    <SelectState id='stateID' selected={props?.register?.state} />
                 </div>
                 <div className="relative mb-6">
                     <label
@@ -31,7 +21,7 @@ export default function Form({setModalOpen}) {
                         className="pointer-events-none"
                     >Cidade
                     </label>
-                    <SelectCity id='cityID'/>
+                    <SelectCity id='cityID' selected={props?.register?.city}/>
                 </div>
                 <div className="relative mb-6">
                     <label
@@ -39,13 +29,12 @@ export default function Form({setModalOpen}) {
                         className="pointer-events-none"
                     >Bairro
                     </label>
-                    <SelectDistrict id='districtID'/>                    
-
+                    <SelectDistrict id='districtID' selected={props?.register?.district} />                    
                 </div>
             </div>
 
             <div className="relative z-0 w-full mb-6 group">
-                <input type="text" name="street" id="floating_street" 
+                <input type="text" name="street" id="floating_street" value={props.register?.street} onChange={(e)=> props.setRegister && props.setRegister({...props.register, street:e.target.value})} 
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                 <label
                     htmlFor="floating_street"
