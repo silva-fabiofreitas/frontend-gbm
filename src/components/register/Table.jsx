@@ -54,8 +54,8 @@ export default function Table(props) {
                 <td>{value.district}</td>
                 <td>{value.street}</td>
                 <td className='flex gap-5 justify-center'>
-                    <FiEdit onClick={() => editRegister(value)} cursor='pointer' size={20} />
-                    <FiTrash onClick={() => openDeleteRegister(value)} cursor='pointer' size={20} />
+                    <FiEdit className='transition hover:text-sky-800 hover:scale-125 ease-in-out duration-300' onClick={() => editRegister(value)} cursor='pointer' size={20} />
+                    <FiTrash className='transition hover:duration-600 hover:text-orange-800 hover:scale-125 ease-in-out duration-300' onClick={() => openDeleteRegister(value)} cursor='pointer' size={20} />
                 </td>
             </tr>
         ))
