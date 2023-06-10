@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { putRegister, deleteRegister } from '@/service/address'
 import { useRouter } from 'next/navigation'
 import _Form from './_Form'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Table(props) {
     const router = useRouter()
@@ -47,7 +48,16 @@ export default function Table(props) {
 
     function renderRow() {
         return data?.map((value, index) => (
-            <tr key={value.id} className="hover hover:bg-sky-600">
+
+            <motion.tr
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                exit={{ opacity: 0 }}
+                transition={{
+                    opacity:{ duration:0.3 },
+                }}
+                layout
+                key={value.id} className="hover hover:bg-sky-600">
                 <th>{index}</th>
                 <td>{value.state}</td>
                 <td>{value.city}</td>
@@ -57,7 +67,8 @@ export default function Table(props) {
                     <FiEdit className='transition hover:text-sky-800 hover:scale-125 ease-in-out duration-300' onClick={() => editRegister(value)} cursor='pointer' size={20} />
                     <FiTrash className='transition hover:duration-600 hover:text-orange-800 hover:scale-125 ease-in-out duration-300' onClick={() => openDeleteRegister(value)} cursor='pointer' size={20} />
                 </td>
-            </tr>
+            </motion.tr>
+
         ))
     }
 
@@ -104,7 +115,7 @@ export default function Table(props) {
                     isDelete ? renderDelete() : <_Form register={register} setRegister={setRegister} handleSubimit={handleSubimitEdit} />
                 }
             </Modal>
-            <div className="flex overflow-x-auto justify-center">
+            <div className="flex overflow-x-auto overflow-y-hidden justify-center">
                 {props.children}
                 <table className="table w-11/12">
                     {/* head */}
@@ -115,7 +126,9 @@ export default function Table(props) {
                         </tr>
                     </thead>
                     <tbody>
-                        {renderRow()}
+                        <AnimatePresence>
+                            {renderRow()}
+                        </AnimatePresence>
                     </tbody>
                 </table>
             </div>
