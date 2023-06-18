@@ -1,13 +1,6 @@
 const baseUrl = 'http://127.0.0.1:8000'
 
-export async function getRegister(){
-    const resp = await fetch(`${baseUrl}/endereco/`, {
-        cache:'no-store'
-
-    })
-    const register = await resp.json()
-    return register
-}
+// --------Populate select------------- //
 
 export async function getState(){
     const resp = await fetch(`${baseUrl}/estado/`)
@@ -27,8 +20,49 @@ export async function getDistrict(){
     return register
 }
 
+export async function getGender(){
+    const resp = await fetch(`${baseUrl}/genero/`)
+    const register = await resp.json()
+    return register
+}
+
+export async function getRisk(){
+    const resp = await fetch(`${baseUrl}/risco/`)
+    const register = await resp.json()
+    return register
+}
+
+export async function getTypeOccurrence(){
+    const resp = await fetch(`${baseUrl}/tipo-correncia/`)
+    const register = await resp.json()
+    return register
+}
+
+export async function getTypeTrafficAccident(){
+    const resp = await fetch(`${baseUrl}/tipo-acidente-transito/`)
+    const register = await resp.json()
+    return register
+}
+
+export async function getUnitType(){
+    const resp = await fetch(`${baseUrl}/tipo-unidade/`)
+    const register = await resp.json()
+    return register
+}
+
+// --------- CRUD-------------- //
+
+export async function getRegister(){
+    const resp = await fetch(`${baseUrl}/registro-correncia/`, {
+        cache:'no-store'
+
+    })
+    const register = await resp.json()
+    return register
+}
+
 export const addRegister = async (data) => {
-    const resp = await fetch(`${baseUrl}/endereco/`, {
+    const resp = await fetch(`${baseUrl}/registro-correncia/`, {
         method:'POST',
         headers: {
             'Content-Type': "application/json",

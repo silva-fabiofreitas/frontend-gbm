@@ -16,7 +16,25 @@ export default function AddRegister() {
         e.preventDefault()
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData.entries())
-        addRegister(data)
+        const body = {
+            profile: {
+                age: data.age,
+                gender: data.gender
+            },
+            address: {
+                street: data.street,
+                district: data.district,
+                city: data.city,
+                state: data.state
+            },
+            risk: data.risk,
+            type_of_occurrence:data.type_of_occurrence,
+            type_of_traffic_accident:data.type_of_traffic_accident,
+            unit_type: data.unit_type,
+            date:data.date
+        }
+        console.log(body)
+        addRegister(body)
         setModalOpen(false)
         router.refresh()     
     }  
@@ -30,7 +48,6 @@ export default function AddRegister() {
                 </Button>
             </div>
             <Modal modalOpen={modalOpen} setModalOpen={setModalOpen} >
-                {/* <Form setModalOpen={setModalOpen}/> */}
                 <_Form setModalOpen={setModalOpen} handleSubimit={handleSubimit}/>
             </Modal>
         </>

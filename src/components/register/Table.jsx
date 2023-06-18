@@ -59,10 +59,17 @@ export default function Table(props) {
                 layout
                 key={value.id} className="hover hover:bg-sky-600">
                 <th>{index}</th>
-                <td>{value.state}</td>
-                <td>{value.city}</td>
-                <td>{value.district}</td>
-                <td>{value.street}</td>
+                <td>{value.address.state}</td>
+                <td>{value.address.city}</td>
+                <td>{value.address.district}</td>
+                <td>{value.address.street}</td>
+                <td>{value.profile.age}</td>
+                <td>{value.profile.gender}</td>
+                <td>{value.risk}</td>
+                <td>{value.type_of_occurrence}</td>
+                <td>{value.type_of_traffic_accident}</td>
+                <td>{value.unit_type}</td>
+                <td>{new Date(value.date).toLocaleString('pt-BR')}</td>
                 <td className='flex gap-5 justify-center'>
                     <FiEdit className='transition hover:text-sky-800 hover:scale-125 ease-in-out duration-300' onClick={() => editRegister(value)} cursor='pointer' size={20} />
                     <FiTrash className='transition hover:duration-600 hover:text-orange-800 hover:scale-125 ease-in-out duration-300' onClick={() => openDeleteRegister(value)} cursor='pointer' size={20} />
