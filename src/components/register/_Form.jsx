@@ -12,7 +12,7 @@ export default function Form(props) {
                         className="pointer-events-none"
                     >UF
                     </label>
-                    <SelectState id='stateID' selected={props?.register?.address?.state} setRegister={props.setRegister} />
+                    <SelectState id='stateID' selected={props?.register?.address?.state} setRegister={props?.setRegister} register={props?.register} />
                 </div>
                 <div className="relative mb-6">
                     <label
@@ -20,7 +20,7 @@ export default function Form(props) {
                         className="pointer-events-none"
                     >Cidade
                     </label>
-                    <SelectCity id='cityID' selected={props?.register?.address?.city} setRegister={props.setRegister} register={props.register}  />
+                    <SelectCity id='cityID' selected={props?.register?.address?.city} setRegister={props?.setRegister} register={props?.register}  />
                 </div>
                 <div className="relative mb-6">
                     <label
@@ -28,7 +28,7 @@ export default function Form(props) {
                         className="pointer-events-none"
                     >Bairro
                     </label>
-                    <SelectDistrict id='districtID' selected={props?.register?.address?.district} setRegister={props.setRegister} register={props.register} />
+                    <SelectDistrict id='districtID' selected={props?.register?.address?.district} setRegister={props?.setRegister} register={props?.register} />
                 </div>
             </div>
 
@@ -58,7 +58,7 @@ export default function Form(props) {
                         className="pointer-events-none"
                     >Genero
                     </label>
-                    <SelectGender className='mr-4' id='genderID' selected={props?.register?.profile?.gender} setRegister={props.setRegister} register={props.register} />
+                    <SelectGender className='mr-4' id='genderID' selected={props?.register?.profile?.gender} setRegister={props?.setRegister} register={props?.register} />
                 </div>
 
                 <div className="relative z-0 group flex-1">
@@ -88,7 +88,7 @@ export default function Form(props) {
                         className="pointer-events-none"
                     >Risco
                     </label>
-                    <SelectRisk id='riskID' selected={props?.register?.risk} setRegister={props.setRegister} register={props.register} />
+                    <SelectRisk id='riskID' selected={props?.register?.risk} setRegister={props?.setRegister} register={props?.register} />
                 </div>
                 <div className="relative mb-6 flex-1">
                     <label
@@ -96,7 +96,7 @@ export default function Form(props) {
                         className="pointer-events-none"
                     >Tipo de ocorrência
                     </label>
-                    <SelectTypeOccurrence id='typeOccurrenceID' selected={props?.register?.type_of_occurrence} setRegister={props.setRegister} register={props.register} />
+                    <SelectTypeOccurrence id='typeOccurrenceID' selected={props?.register?.type_of_occurrence} setRegister={props?.setRegister} register={props?.register} />
                 </div>
                 <div className="relative mb-6 flex-1">
                     <label
@@ -104,7 +104,7 @@ export default function Form(props) {
                         className="pointer-events-none"
                     >Acidente de Transito
                     </label>
-                    <SelectTypeTrafficAccident id='typeTrafficAccidentID' selected={props?.register?.type_of_traffic_accident} setRegister={props.setRegister} register={props.register} />
+                    <SelectTypeTrafficAccident id='typeTrafficAccidentID' selected={props?.register?.type_of_traffic_accident} setRegister={props?.setRegister} register={props?.register} />
                 </div>
             </div>
 
@@ -115,7 +115,7 @@ export default function Form(props) {
                         className="pointer-events-none"
                     >Tipo de unidade
                     </label>
-                    <SelectUnitType id='unitTypeID' selected={props?.register?.unit_type} setRegister={props.setRegister} register={props.register} />
+                    <SelectUnitType id='unitTypeID' selected={props?.register?.unit_type} setRegister={props?.setRegister} register={props?.register} />
                 </div>
                 <div className="relative mb-6 flex-1">
                     <label
