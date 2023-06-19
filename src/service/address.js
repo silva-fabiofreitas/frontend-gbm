@@ -76,7 +76,7 @@ export const addRegister = async (data) => {
 }
 
 export const putRegister = async (data, id) => {
-    const resp = await fetch(`${baseUrl}/endereco/${id}/`, {
+    const resp = await fetch(`${baseUrl}/registro-correncia/${id}/`, {
         method:'PUT',
         headers: {
             'Content-Type': "application/json",
@@ -90,7 +90,7 @@ export const putRegister = async (data, id) => {
 }
 
 export const deleteRegister = async (id) => {
-    const resp = await fetch(`${baseUrl}/endereco/${id}/`, {
+    const resp = await fetch(`${baseUrl}/registro-correncia/${id}/`, {
         method:'DELETE',
         headers: {
             'Content-Type': "application/json",

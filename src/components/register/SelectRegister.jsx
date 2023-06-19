@@ -19,7 +19,7 @@ export function SelectState(props) {
     const selected = props.selected
 
     return (
-        <Select id={id} name='state' options={data} selected={selected} className='select w-full max-w-xs select-sm peer block mt-2' >
+        <Select id={id} name='state' options={data} selected={selected} register={props.register} setRegister={props.setRegister} className='select w-full max-w-xs select-sm peer block mt-2' >
             <option value="">Selecione a UF</option>
         </Select>
     )
@@ -29,7 +29,7 @@ export function SelectCity(props) {
     const id = props.id
     const selected = props.selected
     return (
-        <Select id={id} name='city' options={data} selected={selected} className='select w-full max-w-xs select-sm peer block mt-2'>
+        <Select id={id} name='city' options={data} selected={selected} register={props.register} setRegister={props.setRegister} className='select w-full max-w-xs select-sm peer block mt-2'>
             <option defaultValue value="">Selecione a Cidade</option>
         </Select>
     )
@@ -40,7 +40,7 @@ export function SelectDistrict(props) {
     const id = props.id
     const selected = props.selected
     return (
-        <Select id={id} name='district' options={data} selected={selected} className='select w-full max-w-xs select-sm peer block mt-2'>
+        <Select id={id} name='district' options={data} selected={selected} register={props.register} setRegister={props.setRegister} className='select w-full max-w-xs select-sm peer block mt-2'>
             <option defaultValue value="">Selecione o Bairro</option>
         </Select>
     )
@@ -52,7 +52,7 @@ export function SelectGender(props) {
     const selected = props.selected
 
     return (
-        <Select id={id} name='gender' options={data} selected={selected} className={`${props?.className} select w-full max-w-xs select-sm peer block mt-2`}>
+        <Select id={id} name='gender' options={data} selected={selected} register={props.register} setRegister={props.setRegister} className={`${props?.className} select w-full max-w-xs select-sm peer block mt-2`}>
             <option defaultValue value="">Selecione o Genero</option>
         </Select>  
     )
@@ -67,7 +67,7 @@ export function SelectRisk(props) {
     })
 
     return (
-        <Select id={id} name='risk' options={options} selected={selected} className={`${props?.className} select w-full max-w-xs select-sm peer block mt-2`}>
+        <Select id={id} name='risk' options={options} selected={selected} register={props.register} setRegister={props.setRegister} className={`${props?.className} select w-full max-w-xs select-sm peer block mt-2`}>
             <option defaultValue value="">Classificação de risco</option>
         </Select>  
     )
@@ -79,7 +79,7 @@ export function SelectTypeOccurrence(props) {
     const selected = props.selected
 
     return (
-        <Select id={id} name='type_of_occurrence' options={data} selected={selected} className={`${props?.className} select w-full max-w-xs select-sm peer block mt-2`}>
+        <Select id={id} name='type_of_occurrence' options={data} selected={selected} register={props.register} setRegister={props.setRegister} className={`${props?.className} select w-full max-w-xs select-sm peer block mt-2`}>
             <option defaultValue value="">Tipo de ocorrência</option>
         </Select>  
     )
@@ -91,7 +91,7 @@ export function SelectTypeTrafficAccident(props) {
     const selected = props.selected
 
     return (
-        <Select id={id} name='type_of_traffic_accident' options={data} selected={selected} className={`${props?.className} select w-full max-w-xs select-sm peer block mt-2`}>
+        <Select id={id} name='type_of_traffic_accident' options={data} selected={selected} register={props.register} setRegister={props.setRegister} className={`${props?.className} select w-full max-w-xs select-sm peer block mt-2`}>
             <option defaultValue value="">Tipo de acidente</option>
         </Select>  
     )
@@ -103,7 +103,7 @@ export function SelectUnitType(props) {
     const selected = props.selected
 
     return (
-        <Select id={id} name='unit_type' options={data} selected={selected} className={`${props?.className} select w-full max-w-xs select-sm peer block mt-2`}>
+        <Select id={id} name='unit_type' options={data} selected={selected} register={props.register} setRegister={props.setRegister} className={`${props?.className} select w-full max-w-xs select-sm peer block mt-2`}>
             <option defaultValue value="">Tipo de unidade</option>
         </Select>  
     )

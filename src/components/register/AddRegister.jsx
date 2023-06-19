@@ -16,6 +16,7 @@ export default function AddRegister() {
         e.preventDefault()
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData.entries())
+   
         const body = {
             profile: {
                 age: data.age,
@@ -33,7 +34,6 @@ export default function AddRegister() {
             unit_type: data.unit_type,
             date:data.date
         }
-        console.log(body)
         addRegister(body)
         setModalOpen(false)
         router.refresh()     

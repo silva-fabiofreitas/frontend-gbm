@@ -18,7 +18,7 @@ export default function Table(props) {
     const [register, setRegister] = useState({
         id: '', state: '', city: '', district: '', street: ''
     })
-
+    
     const editRegister = (registro) => {
         setRegister(registro)
         setIsDelete(false)
@@ -41,7 +41,7 @@ export default function Table(props) {
         e.preventDefault()
         const formData = new FormData(e.target)
         const data = Object.fromEntries(formData.entries())
-        putRegister(data, register.id)
+        putRegister(register, register.id)
         setModalOpen(false)
         router.refresh()
     }
