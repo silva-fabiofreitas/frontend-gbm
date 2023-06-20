@@ -9,7 +9,25 @@ import {useRouter} from 'next/navigation'
 import {addRegister} from '@/service/address'
 
 export default function AddRegister() {
-    const [modalOpen, setModalOpen] = useState(false)    
+    const [modalOpen, setModalOpen] = useState(false)   
+    const [register, setRegister] = useState({
+        profile: {
+            age: '',
+            gender: ''
+        },
+        address: {
+            street: '',
+            district: '',
+            city: '',
+            state: ''
+        },
+        risk: '',
+        type_of_occurrence:'',
+        type_of_traffic_accident:'',
+        unit_type: '',
+        date:''
+    })
+    console.log(register)
 
     const router = useRouter()
     const handleSubimit = (e)=>{
@@ -48,7 +66,12 @@ export default function AddRegister() {
                 </Button>
             </div>
             <Modal modalOpen={modalOpen} setModalOpen={setModalOpen} >
-                <_Form setModalOpen={setModalOpen} handleSubimit={handleSubimit}/>
+                <_Form 
+                setModalOpen={setModalOpen}
+                 handleSubimit={handleSubimit}
+                 setRegister={setRegister}
+                 register={register}                
+                />
             </Modal>
         </>
     )

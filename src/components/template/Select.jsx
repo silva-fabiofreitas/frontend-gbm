@@ -4,6 +4,7 @@ export default function Select(props) {
     const options = props.options
     const id = props.id
     let value = props?.register?.[name]
+    
     if (['state', 'city', 'district'].includes(name)) {
         value = props?.register?.address?.[name]
     } else if (['age', 'gender'].includes(name)) {
@@ -12,7 +13,7 @@ export default function Select(props) {
     const updateRegister = (e) => {
         let obj = {}
         if (['state', 'city', 'district'].includes(name)) {
-            obj = { ...props?.register?.address, [name]: e.target.value }
+            obj = {address: { ...props?.register?.address, [name]: e.target.value }}
         } else if (['age', 'gender'].includes(name)) {
             obj = { profile: { ...props?.register?.profile, [name]: e.target.value } }
         }

@@ -9,15 +9,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Table(props) {
     const router = useRouter()
-    const style = props.style
     const data = props.data
     const columns = props.columns
 
     const [modalOpen, setModalOpen] = useState(false)
     const [isDelete, setIsDelete] = useState(false)
-    const [register, setRegister] = useState({
-        id: '', state: '', city: '', district: '', street: ''
-    })
+    const [register, setRegister] = useState('')
     
     const editRegister = (registro) => {
         setRegister(registro)
@@ -39,26 +36,7 @@ export default function Table(props) {
 
     const handleSubimitEdit = (e) => {
         e.preventDefault()
-        const formData = new FormData(e.target)
-        const data = Object.fromEntries(formData.entries())
-        const body = {
-            profile: {
-                age: data.age,
-                gender: data.gender
-            },
-            address: {
-                street: data.street,
-                district: data.district,
-                city: data.city,
-                state: data.state
-            },
-            risk: data.risk,
-            type_of_occurrence:data.type_of_occurrence,
-            type_of_traffic_accident:data.type_of_traffic_accident,
-            unit_type: data.unit_type,
-            date:data.date
-        }
-        putRegister(body, register.id)
+        putRegister(register, register.id)
         setModalOpen(false)
         router.refresh()
     }
@@ -140,7 +118,6 @@ export default function Table(props) {
                 }
             </Modal>
             <div className="flex overflow-x-auto overflow-y-hidden justify-center">
-                {props.children}
                 <table className="table w-11/12">
                     {/* head */}
                     <thead>

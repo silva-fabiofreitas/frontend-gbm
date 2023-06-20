@@ -1,10 +1,11 @@
 import { SelectCity, SelectDistrict, SelectState, SelectGender, SelectRisk, SelectTypeOccurrence, SelectTypeTrafficAccident, SelectUnitType } from './SelectRegister'
 
 export default function Form(props) {
+    const register = props?.register
 
     return (
         <form onSubmit={props.handleSubimit}>
-            <h1 className="font-semibold text-lg mb-6 ">Local</h1>
+            <h1 className="font-semibold text-lg mb-6">Local</h1>
             <div className="flex justify-around">
                 <div className="relative mb-6">
                     <label
@@ -12,7 +13,7 @@ export default function Form(props) {
                         className="pointer-events-none"
                     >UF
                     </label>
-                    <SelectState id='stateID' selected={props?.register?.address?.state} setRegister={props?.setRegister} register={props?.register} />
+                    <SelectState id='stateID' setRegister={props?.setRegister} register={props?.register} />
                 </div>
                 <div className="relative mb-6">
                     <label
@@ -20,7 +21,7 @@ export default function Form(props) {
                         className="pointer-events-none"
                     >Cidade
                     </label>
-                    <SelectCity id='cityID' selected={props?.register?.address?.city} setRegister={props?.setRegister} register={props?.register}  />
+                    <SelectCity id='cityID' setRegister={props?.setRegister} register={props?.register} />
                 </div>
                 <div className="relative mb-6">
                     <label
@@ -28,14 +29,20 @@ export default function Form(props) {
                         className="pointer-events-none"
                     >Bairro
                     </label>
-                    <SelectDistrict id='districtID' selected={props?.register?.address?.district} setRegister={props?.setRegister} register={props?.register} />
+                    <SelectDistrict id='districtID' setRegister={props?.setRegister} register={props?.register} />
                 </div>
             </div>
 
             <div className="relative z-0 w-full mb-6 group">
                 <input type="text" name="street" id="floating_street"
-                    defaultValue={props?.register?.address?.street}
-                    onChange={(e) => props.setRegister && props.setRegister({...props.register, address: { ...props.register.address, street: e.target.value } })}
+                    value={register?.address?.street || ''}
+                    onChange={(e) => props.setRegister &&
+                        props.setRegister(
+                            {
+                                ...props.register, address:
+                                    { ...props.register.address, street: e.target.value }
+                            }
+                        ) }
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                 <label
                     htmlFor="floating_street"
@@ -58,16 +65,16 @@ export default function Form(props) {
                         className="pointer-events-none"
                     >Genero
                     </label>
-                    <SelectGender className='mr-4' id='genderID' selected={props?.register?.profile?.gender} setRegister={props?.setRegister} register={props?.register} />
+                    <SelectGender className='mr-4' id='genderID' setRegister={props?.setRegister} register={props?.register} />
                 </div>
 
                 <div className="relative z-0 group flex-1">
-                    <input type="number" name="age" id="floating_street" 
-                    defaultValue={props.register?.profile?.age}
-                     onChange={(e) => props.setRegister && props.setRegister({ ...props.register, profile: {...props.register.profile, age: e.target.value } })}
+                    <input type="number" name="age" id="floating_age"
+                        value={props.register?.profile?.age || ""}
+                        onChange={(e) => props.setRegister && props.setRegister({ ...props.register, profile: { ...props.register.profile, age: e.target.value } })}
                         className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                     <label
-                        htmlFor="floating_street"
+                        htmlFor="floating_age"
                         className="peer-focus:font-medium
                         absolute text-sm text-gray-500
                       dark:text-gray-400
@@ -88,7 +95,7 @@ export default function Form(props) {
                         className="pointer-events-none"
                     >Risco
                     </label>
-                    <SelectRisk id='riskID' selected={props?.register?.risk} setRegister={props?.setRegister} register={props?.register} />
+                    <SelectRisk id='riskID' setRegister={props?.setRegister} register={props?.register} />
                 </div>
                 <div className="relative mb-6 flex-1">
                     <label
@@ -96,7 +103,7 @@ export default function Form(props) {
                         className="pointer-events-none"
                     >Tipo de ocorrência
                     </label>
-                    <SelectTypeOccurrence id='typeOccurrenceID' selected={props?.register?.type_of_occurrence} setRegister={props?.setRegister} register={props?.register} />
+                    <SelectTypeOccurrence id='typeOccurrenceID' setRegister={props?.setRegister} register={props?.register} />
                 </div>
                 <div className="relative mb-6 flex-1">
                     <label
@@ -104,7 +111,7 @@ export default function Form(props) {
                         className="pointer-events-none"
                     >Acidente de Transito
                     </label>
-                    <SelectTypeTrafficAccident id='typeTrafficAccidentID' selected={props?.register?.type_of_traffic_accident} setRegister={props?.setRegister} register={props?.register} />
+                    <SelectTypeTrafficAccident id='typeTrafficAccidentID' setRegister={props?.setRegister} register={props?.register} />
                 </div>
             </div>
 
@@ -115,7 +122,7 @@ export default function Form(props) {
                         className="pointer-events-none"
                     >Tipo de unidade
                     </label>
-                    <SelectUnitType id='unitTypeID' selected={props?.register?.unit_type} setRegister={props?.setRegister} register={props?.register} />
+                    <SelectUnitType id='unitTypeID' setRegister={props?.setRegister} register={props?.register} />
                 </div>
                 <div className="relative mb-6 flex-1">
                     <label
@@ -123,7 +130,7 @@ export default function Form(props) {
                         className="pointer-events-none block"
                     >Data
                     </label>
-                    <input type='datetime-local' name='date' id='dateID' defaultValue={props?.register?.date?.replace('Z', '')}
+                    <input type='datetime-local' name='date' id='dateID' value={props?.register?.date?.replace('Z', '') || ''}
                         onChange={(e) => props.setRegister && props.setRegister({ ...props.register, date: e.target.value })}
                     />
                 </div>

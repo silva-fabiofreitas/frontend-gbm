@@ -17,10 +17,6 @@ export default async function Cadastro() {
         { name: 'Acidente de Trans.', className: '' },
         { name: 'Unidade', className: '' },
         { name: 'Data', className: 'flex justify-center' }
-
-
-
-    
     ]
     const data = await getRegister()
 
