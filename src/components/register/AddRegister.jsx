@@ -27,32 +27,11 @@ export default function AddRegister() {
         unit_type: '',
         date:''
     })
-    console.log(register)
-
+  
     const router = useRouter()
     const handleSubimit = (e)=>{
-        e.preventDefault()
-        const formData = new FormData(e.target)
-        const data = Object.fromEntries(formData.entries())
-   
-        const body = {
-            profile: {
-                age: data.age,
-                gender: data.gender
-            },
-            address: {
-                street: data.street,
-                district: data.district,
-                city: data.city,
-                state: data.state
-            },
-            risk: data.risk,
-            type_of_occurrence:data.type_of_occurrence,
-            type_of_traffic_accident:data.type_of_traffic_accident,
-            unit_type: data.unit_type,
-            date:data.date
-        }
-        addRegister(body)
+        e.preventDefault()        
+        addRegister(register)
         setModalOpen(false)
         router.refresh()     
     }  
