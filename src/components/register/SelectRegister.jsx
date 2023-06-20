@@ -3,7 +3,6 @@ import _Select from 'react-select';
 
 import Select from "../template/Select";
 import { getCity, getDistrict, getGender, getRisk, getState, getTypeOccurrence, getTypeTrafficAccident, getUnitType } from '@/service/address'
-import { GlobalContext } from './_Form';
 
 const statePromisse = getState()
 const cityPromisse = getCity()
