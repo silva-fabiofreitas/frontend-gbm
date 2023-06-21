@@ -1,6 +1,5 @@
 import { getRegister } from '@/service/address'
-import Table from '@/components/register/Table'
-import AddRegister from '@/components/register/AddRegister'
+import Register from '@/components/register/register'
 import PageWrapper from "@/components/template/Wrapper";
 
 
@@ -23,9 +22,7 @@ export default async function Cadastro() {
     return (
         <>
             <PageWrapper>
-                <h1 className='flex justify-center text-xl pt-6 font-bold '>Registro de Ocorrências</h1>
-                <AddRegister />
-                <Table columns={columns} data={data}></Table>
+            <Register columns={columns} data={data} ></Register>
             </PageWrapper>
         </>
     )
