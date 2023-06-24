@@ -9,22 +9,8 @@ export default function Table(props) {
     const data = props.data
     const columns = props.columns
 
-    const {setModalOpen, setRegister, setIsDelete, setIsEdit } = props
-    
-    
-    const editRegister = (registro) => {
-        setRegister(registro)
-        setIsEdit(true)
-        setIsDelete(false)
-        setModalOpen(true)
-    }
-
-    const openDeleteRegister = (registro) => {
-        setRegister(registro)
-        setModalOpen(true)
-        setIsDelete(true)
-    }   
-
+    const {editRegister ,openDeleteRegister} = props
+ 
     function renderRow() {
         return data?.map((value, index) => (
 
@@ -84,4 +70,5 @@ export default function Table(props) {
             </div>
         </>
     )
-} 
+}
+ 
