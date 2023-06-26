@@ -35,13 +35,13 @@ export default function RootLayout({ children }) {
       <div className='app'>
                 <Logo style='bg-neutral-800'></Logo>
                 <Header style='bg-neutral-800'>
-                    <Nave links={linksHeader} className='flex bg-neutral-800'></Nave>
+                    <Nave links={linksHeader} className='flex bg-neutral-800' classNameLink='relative text-white hover:bg-gray-700 hover:text-white rounded-md px-1 py-2 text-sm font-medium'></Nave>
                 </Header>
                 <Main style='bg-stone-100 overflow-y-auto'>
                   {children}
                 </Main>
                 <Footer style='bg-neutral-800 flex'>
-                    <Nave className='bg-neutral-800 flex' links={linksFooter}></Nave>
+                    <Nave className='bg-neutral-800 flex' links={linksFooter} classNameLink='relative text-white hover:bg-gray-700 hover:text-white rounded-md py-2 text-sm font-medium'></Nave>
                 </Footer>
             </div>
         

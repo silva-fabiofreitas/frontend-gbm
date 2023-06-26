@@ -5,6 +5,7 @@ import { useSelectedLayoutSegment } from 'next/navigation'
 
 export default function Nav(props) {
     const className = props.className
+    const classNameLink = props.classNameLink
     const links = props.links
     const activeSegment = useSelectedLayoutSegment()
 
@@ -13,16 +14,17 @@ export default function Nav(props) {
             <Link
                 key={name}
                 href={path}
-                className={`relative text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
+                className={classNameLink}
             >
                 {activeSegment == path && (
-                <motion.span
-                layoutId="underline"
-                 className="absolute left-0 top-full block h-[1px] w-full bg-gray-200" />) }
-                <span className="flex gap-1 items-center">
-                    {icon}
-                    {name}
-                </span>
+                    <motion.span
+                        layoutId="underline"
+                        className="absolute left-0 top-full block h-[1px] w-full bg-gray-200" />)}
+                <div className="flex">
+                    <span className={`flex items-center ${classNameLink}`}>{icon}</span>
+                    <span className={`flex items-center ${classNameLink} ${props.toggle && 'hidden'}`}>{name}</span>
+                </div>
+
             </Link>
         ))
     }

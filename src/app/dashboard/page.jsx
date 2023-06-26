@@ -1,11 +1,14 @@
 import PageWrapper from "@/components/template/Wrapper";
-export default function Dashboard(props) {
-    const style = props.style
+import Sidebar from "@/components/sidebar/Sidebar";
+import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
+
+export default function Dashboard() {
     return (
         <PageWrapper>
-            <div className={`footer flex items-center justify-center ${style}`}>
-                {props.children}
-                Dashboard
+            <div className={`flex m-2 gap-6`}>                
+                    <Sidebar className={'flex w-60 rounded-md shadow-sm bg-gray-600 h-[calc(100vh_-_200px)]'}/>  
+                
+                <div className="">Dashboard</div>
             </div>
         </PageWrapper>
     )
