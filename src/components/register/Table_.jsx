@@ -16,16 +16,16 @@ export default function Table(props) {
             <tr
                 key={value.id} className="hover hover:bg-sky-600">
                 <th>{index}</th>
-                <td>{value.address.state}</td>
-                <td>{value.address.city}</td>
-                <td>{value.address.district}</td>
-                <td>{value.address.street}</td>
-                <td>{value.profile.age}</td>
-                <td>{value.profile.gender}</td>
-                <td>{value.risk}</td>
-                <td>{value.type_of_occurrence}</td>
-                <td>{value.type_of_traffic_accident}</td>
-                <td>{value.unit_type}</td>
+                <td>{value?.address?.state}</td>
+                <td>{value?.address?.city}</td>
+                <td>{value?.address?.district}</td>
+                <td>{value?.address?.street}</td>
+                <td>{value?.profile?.age}</td>
+                <td>{value?.profile?.gender}</td>
+                <td>{value?.risk}</td>
+                <td>{value?.type_of_occurrence}</td>
+                <td>{value?.type_of_traffic_accident}</td>
+                <td>{value?.unit_type}</td>
                 <td>{new Date(value.date).toLocaleString('pt-BR', { timeZone: 'UTC' })}</td>
                 <td className='flex gap-5 justify-center'>
                     <FiEdit className='transition hover:text-sky-800 hover:scale-125 ease-in-out duration-300' onClick={() => editRegister(value)} cursor='pointer' size={20} />
@@ -54,17 +54,11 @@ export default function Table(props) {
                             {renderCol()}
                         </tr>
                     </thead>
-                    <motion.tbody
-                        layout
-                    >
-                        <AnimatePresence>
-                            {renderRow()}
-
-                        </AnimatePresence>
-                    </motion.tbody>
+                    <tbody>
+                        {renderRow()}
+                    </tbody>
                 </table>
             </div>
-
         </>
     )
 }
