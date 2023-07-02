@@ -17,9 +17,9 @@ export default function Sidebar(props) {
     }
 
     const linksHeader = [
-        { name: 'Classificação', path: '#', icon: <HiOutlinePresentationChartLine size={25} /> },
-        { name: 'Perfil', path: '#', icon: <AiOutlineRadarChart size={25} /> },
-        { name: 'Mapa', path: '#', icon: <BsMap size={25} /> },
+        { name: 'Classificação', path: 'dashboard/classificacao', icon: <HiOutlinePresentationChartLine size={25} /> },
+        { name: 'Perfil', path: 'dashboard/perfil', icon: <AiOutlineRadarChart size={25} /> },
+        { name: 'Mapa', path: 'dashboard/mapa', icon: <BsMap size={25} /> },
     ]
     return (
         <>
