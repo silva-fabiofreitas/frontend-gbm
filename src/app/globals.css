@@ -8,6 +8,43 @@
   --background-end-rgb: 255, 255, 255;
   --header-height: 100px;
   --footer-height:80px;
+
+  --primary-c-50: rgb(237 243 248);
+  --primary-c-100: rgb(148, 183, 212);
+  --primary-c-200: rgb(101, 151, 193);
+  --primary-c-300: #4682b4;
+  --primary-c-400: rgb(49, 91 ,126);
+  --primary-c-500: rgb(43, 79 ,110);
+  --secondary-c-300: #479088;
+  --secondary-c-400: rgb(50, 101 ,95);
+  --secondary-c-500: rgb(43, 88 ,83);
+  --succsess-c-50: rgb(232 250 251);
+  --succsess-c-75: rgb(162 236 239);
+  --succsess-c-300: #1dd1d9;
+  --succsess-c-400: rgb(20, 146 ,152);
+  --succsess-c-500: rgb(18, 127 ,132);
+  --warning-c-300: #ff8e2b;
+  --warning-c-400: rgb(179 99 30);
+  --warning-c-500: rgb(156 87 26);
+  --danger-c-300: rgb(218 37 29);
+  --danger-c-400: rgb(153 26 20);
+  --danger-c-500: rgb(133 23 18);
+
+  --neutral-c-10: rgb(250 251 251);
+  --neutral-c-20: rgb(245 246 247);
+  --neutral-c-30: rgb(235 237 240);
+  --neutral-c-40: rgb(223 226 230);
+  --neutral-c-50: rgb(194 199 208);
+  --neutral-c-60: rgb(179 185 196);
+  --neutral-c-70: rgb(166 174 187);
+  --neutral-c-80: rgb(152 161 176);
+  --neutral-c-90: rgb(137 147 164);
+  --neutral-c-100: rgb(122 134 153);
+  --neutral-c-300: rgb(93 107 130);
+  --neutral-c-400: rgb(80 95 121);
+  --neutral-c-500: rgb(66 82 109);
+
+  
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,6 +53,67 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+}
+
+.border-neutral-100 {
+  border-color: var(--neutral-c-100);
+}
+
+.bg-neutral-10 {
+  background: var(--neutral-c-10);
+}
+.bg-neutral-20 {
+  background: var(--neutral-c-20);
+}
+.bg-neutral-30 {
+  background: var(--neutral-c-30);
+}
+.bg-neutral-50 {
+  background: var(--neutral-c-30);
+}
+.bg-neutral-400 {
+  background: var(--neutral-c-400);
+}
+
+.bg-primary-50 {
+  background: var(--primary-c-50);
+}
+
+.bg-primary-300 {
+  background: var(--primary-c-300);
+}
+.bg-primary-400 {
+  background: var(--primary-c-400);
+}
+.bg-primary-500 {
+  background: var(--primary-c-500);
+}
+
+.bg-secondary-50 {
+  background: var(--secondary-c-50);
+}
+.bg-secondary-75 {
+  background: var(--secondary-c-75);
+}
+
+.bg-secondary-300 {
+  background: var(--secondary-c-300);
+}
+.bg-secondary-400 {
+  background: var(--secondary-c-400);
+}
+.bg-secondary-500 {
+  background: var(--secondary-c-500);
+}
+
+.bg-danger-300 {
+  background: var(--danger-c-300);
+}
+.bg-danger-400 {
+  background: var(--danger-c-400);
+}
+.bg-danger-500 {
+  background: var(--danger-c-500);
 }
 
 aside.logo {
@@ -41,7 +139,7 @@ footer.footer {
 .app {
   margin: 0;
   display: grid;
-  grid-template-columns: 86px 1fr;
+  grid-template-columns: 200px 1fr;
   grid-template-rows: 
       var(--header-height)
       1fr
@@ -51,7 +149,6 @@ footer.footer {
       "main main"
       "footer footer";
   height: 100vh;
-  background-color: #f5f5f5;
 }
 
 .btn-sidebar {
@@ -69,5 +166,10 @@ footer.footer {
   justify-content: center;
   cursor: pointer;
   transform: translateX(50%);
+}
+
+.table :where(thead, tfoot) :where(th, td) {
+  background: var(--neutral-c-50);
+  /* color: #f5f5f5; */
 }
 

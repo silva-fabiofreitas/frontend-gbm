@@ -5,9 +5,9 @@ export default function Logo(props){
     return (
         <aside className={`logo ${style}`}>
             <Image
-                src={'/assets/images/logo.jfif'}
-                width={80}
-                height={80}
+                src={'/assets/images/logoB.png'}
+                width={200}
+                height={200}
                 alt='GBM'
             ></Image>
         </aside>

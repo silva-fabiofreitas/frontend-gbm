@@ -1,6 +1,7 @@
 'use client'
 import React from "react";
 import ReactEcharts from "echarts-for-react"; 
+import theme from '../../../public/themas/custom.project.json'
 
 export default function Piechart({data, ...props}) {  
   const option = {
@@ -40,5 +41,5 @@ export default function Piechart({data, ...props}) {
       }
     ]
   }; 
-return <ReactEcharts option={option} style={{top:"10%"}} />;
+return <ReactEcharts option={option} style={{top:"10%"}} theme={theme.theme}  />;
 } 

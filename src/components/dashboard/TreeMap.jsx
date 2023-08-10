@@ -1,6 +1,7 @@
 'use client'
 import React from "react";
 import ReactEcharts from "echarts-for-react"; 
+import theme from '../../../public/themas/custom.project.json'
 
 export default function Barchart(props) { 
   
@@ -39,5 +40,5 @@ export default function Barchart(props) {
 
 }  
 
-return <ReactEcharts option={ optionAge } style={{position:'relative', top:'10%'}} />;
+return <ReactEcharts option={ optionAge } style={{position:'relative', top:'10%'}} theme={theme.theme} />;
 } 

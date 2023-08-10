@@ -15,7 +15,8 @@ export default async function Cadastro() {
         { name: 'Ocorrência', className: '' },
         { name: 'Acidente de Trans.', className: '' },
         { name: 'Unidade', className: '' },
-        { name: 'Data', className: 'flex justify-center' }
+        { name: 'Data', className: '' },
+        { name: 'Ação', className: 'flex justify-center' }
     ]
     const data = await getRegister()
 
